@@ -1,0 +1,29 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "npx tsc --build tsconfig.json",
+    "dist": "npx rollup -c",
+    "prepare": "npm run dist",
+    "run_tests": "NODE_PATH=dist/src npx ava",
+    "test": "npm run build && npm run run_tests"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "husky": "^2.2.0",
+    "prettier": "1.17.1",
+    "rollup": "^1.11.3",
+    "rollup-plugin-typescript2": "^0.21.0",
+    "typescript": "^3.4.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  }
+}
